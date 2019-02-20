@@ -1,0 +1,11 @@
+@mixin visibilityHidden () {
+  visibility: hidden;
+  opacity: 0;
+  display: none;
+}
+
+%visibilityHidden {
+  visibility: hidden;
+  opacity: 0;
+  display: none;
+}

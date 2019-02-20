@@ -1,0 +1,61 @@
+[role="button"] {
+  cursor: pointer;
+}
+
+//
+// base button style
+//
+.btn {
+  &, &:link, &:visited {
+    background-color: #ffc107;
+    border: 0;
+    border-radius: 3px;
+    color: $c-text;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1.4rem;
+    font-weight: normal;
+    line-height: 4rem;
+    min-width: 120px;
+    padding-left: 12px;
+    padding-right: 12px;
+    text-align: center;
+    text-decoration: none;
+    transition: color .2s, background-color .2s, border .2s;
+  }
+
+  &:hover,
+  &:focus,
+  &:active{
+    background-color: #ff9800;
+    color: $c-link-hover;
+  }
+
+  span {
+    display: inline-block;
+    position: relative;
+  }
+
+  //
+  // button sizes
+  &.btn-sm { font-size: 13px; }
+  &.btn-md { font-size: 18px; }
+  &.btn-Lg {
+    font-size: 22px;
+    border-radius: .25em !important;
+  }
+
+  //
+  // button widths
+  &.btn-full,
+  &.btn-block {
+    &, &:link {
+      border-radius: .25em;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      width: 100%;
+    }
+  }
+}

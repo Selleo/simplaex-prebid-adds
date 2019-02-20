@@ -1,0 +1,91 @@
+//
+//== Colors
+//
+
+$c-text: #FFF !default;
+
+$c-gray1: #f8f8f9 !default;
+$c-gray2: #dddfe3 !default;
+$c-gray3: #8e8f8d !default;
+
+$c-lightBlue: #dbecf1 !default;
+$c-pale-blue: #a9b9d4 !default;
+$c-peach: #fae8c9 !default;
+$c-lightPeach: #e9dacc !default;
+
+$c-link: $c-text !default;
+$c-link-hover: darken($c-text, 15%) !default;
+
+
+//
+//== Typography
+//
+$font-family: 'poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif !default;
+$font-size-base: 1.6rem !default;
+$font-weight-normal: normal !default;
+$font-weight-bold: 600 !default;
+$font-weight-base: $font-weight-normal !default;
+$line-height-base: 1.5 !default;
+
+
+//
+// Grid
+//
+$breakpoints: (
+  mobile: 576px,
+  tablet: 992px,
+  desktop: 1200px,
+  desktop-lg: 1540px
+);
+
+$screen-desktop-lg: map_get($breakpoints, desktop-lg) !default;
+$screen-desktop: map_get($breakpoints, desktop) !default;
+$screen-mobile: map_get($breakpoints, mobile) !default;
+$screen-tablet: map_get($breakpoints, tablet) !default;
+
+$screen-mobile-max: $screen-tablet - 1 !default;
+$screen-mobile-min: 0 !default;
+
+$screen-tablet-max: $screen-desktop - 1 !default;
+$screen-tablet-min: $screen-tablet !default;
+
+$screen-desktop-max: $screen-desktop-lg - 1 !default;
+$screen-desktop-min: map_get($breakpoints, desktop) !default;
+
+$screen-desktop-lg-min: map_get($breakpoints, desktop-lg-min) !default;
+
+
+//
+// Bootstrap
+// grid variables
+$grid-columns: 12;
+$grid-gutter-width: 30px;
+$enable-grid-classes: true;
+$bs-grid-breakpoints: (
+  xs: 0,
+  sm: map_get($breakpoints, 'mobile'),
+  md: map_get($breakpoints, 'tablet'),
+  lg: map_get($breakpoints, 'desktop'),
+  xl: 1200px
+);
+$bs-container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 1140px,
+  xl: 1440px
+);
+$bs-grid-columns: 12;
+$bs-grid-gutter-width: 30px;
+
+//
+// Paths
+$font-path: '/fonts/' !default;
+$img-path: '/img/' !default;
+
+
+//
+// Layout
+$sidebar-width: 240px !default;
+$sidebar-gap: 45px !default;
+$page-header-height: 80px !default;
+$basic-box-shadow: 0 4px 11px 0 rgba(37, 44, 97, 0.15), 0 1px 3px 0 rgba(93, 100, 148, 0.2);
