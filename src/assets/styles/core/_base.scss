@@ -7,11 +7,15 @@
 }
 
 html {
-  font-size: 62.5% // 10px
+  font-size: 62.5%; // 10px
 }
 
 body {
-  background-color: #00695c;
+  --brand-primary: #00B09B;
+  --brand-secondary: #111111;
+  --brand-third: #FFF;
+
+  background-color: #FFF;
   color: $c-text;
   direction: ltr;
   font-family: $font-family;

@@ -2,17 +2,12 @@
 //== Colors
 //
 
-$c-text: #FFF !default;
+// brand colors
+$brand-primary: #00B09B !default;
+$brand-secondary: #111111 !default;
+$brand-third: #FFF !default;
 
-$c-gray1: #f8f8f9 !default;
-$c-gray2: #dddfe3 !default;
-$c-gray3: #8e8f8d !default;
-
-$c-lightBlue: #dbecf1 !default;
-$c-pale-blue: #a9b9d4 !default;
-$c-peach: #fae8c9 !default;
-$c-lightPeach: #e9dacc !default;
-
+$c-text: #111 !default;
 $c-link: $c-text !default;
 $c-link-hover: darken($c-text, 15%) !default;
 
@@ -20,7 +15,7 @@ $c-link-hover: darken($c-text, 15%) !default;
 //
 //== Typography
 //
-$font-family: 'poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif !default;
+$font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !default;
 $font-size-base: 1.6rem !default;
 $font-weight-normal: normal !default;
 $font-weight-bold: 600 !default;
@@ -58,9 +53,9 @@ $screen-desktop-lg-min: map_get($breakpoints, desktop-lg-min) !default;
 //
 // Bootstrap
 // grid variables
-$grid-columns: 12;
-$grid-gutter-width: 30px;
-$enable-grid-classes: true;
+$grid-columns: 12 !default;
+$grid-gutter-width: 30px !default;
+$enable-grid-classes: true !default;
 $bs-grid-breakpoints: (
   xs: 0,
   sm: map_get($breakpoints, 'mobile'),
@@ -74,18 +69,9 @@ $bs-container-max-widths: (
   lg: 1140px,
   xl: 1440px
 );
-$bs-grid-columns: 12;
-$bs-grid-gutter-width: 30px;
+$bs-grid-columns: 12 !default;
+$bs-grid-gutter-width: 30px !default;
 
 //
 // Paths
-$font-path: '/fonts/' !default;
 $img-path: '/img/' !default;
-
-
-//
-// Layout
-$sidebar-width: 240px !default;
-$sidebar-gap: 45px !default;
-$page-header-height: 80px !default;
-$basic-box-shadow: 0 4px 11px 0 rgba(37, 44, 97, 0.15), 0 1px 3px 0 rgba(93, 100, 148, 0.2);

@@ -2,7 +2,6 @@
 // --------------------------------------------------
 @import 'variables';
 @import 'mixins';
-@import 'core/fonts';
 @import 'normalize';
 
 
@@ -12,3 +11,7 @@
 @import 'core/type';
 @import 'core/buttons';
 @import 'core/images';
+
+// Components
+// ---------------------------------------------------
+@import 'components/add-box';
