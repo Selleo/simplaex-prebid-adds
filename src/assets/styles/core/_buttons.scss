@@ -7,28 +7,27 @@
 //
 .btn {
   &, &:link, &:visited {
-    background-color: #ffc107;
+    background-color: var(--brand-primary);
     border: 0;
     border-radius: 3px;
-    color: $c-text;
+    color: var(--brand-third);
     cursor: pointer;
     display: inline-block;
-    font-size: 1.4rem;
-    font-weight: normal;
-    line-height: 4rem;
-    min-width: 120px;
+    font-size: 1.6rem;
+    line-height: 3.6rem;
     padding-left: 12px;
     padding-right: 12px;
     text-align: center;
     text-decoration: none;
-    transition: color .2s, background-color .2s, border .2s;
+    transition: opacity .2s;
+    text-transform: uppercase;
   }
 
   &:hover,
   &:focus,
   &:active{
-    background-color: #ff9800;
-    color: $c-link-hover;
+    text-decoration: underline;
+    opacity: .75;
   }
 
   span {

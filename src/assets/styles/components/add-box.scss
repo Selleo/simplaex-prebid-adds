@@ -14,61 +14,12 @@ $footer-button-color: #FFF !default;
 
 // CORE ADD STYLES
 .c-add-box {
-  width: 1200px;
-  height: 627px;
   background-color: var(--brand-primary);
   color: var(--brand-third);
-  max-width: 1200px;
-  max-height: 627px;
-
-  .size-1 {
-    max-width: 1200px;
-    max-height: 627px;
-    width: 1200px;
-    height: 627px;
-  }
-
-  .size-2 {
-    width: 320px;
-    max-width: 320px;
-    height: 480px;
-    max-height: 480px;
-  }
-
-  .size-3 {
-    width: 320px;
-    max-width: 320px;
-    height: 50px;
-    max-height: 50px;
-  }
-
-  .size-4 {
-    width: 480px;
-    max-width: 480px;
-    height: 320px;
-    max-height: 320px;
-  }
-
-  .size-5 {
-    width: 300px;
-    max-width: 300px;
-    height: 50px;
-    max-height: 50px;
-  }
-
-  .size-6 {
-    width: 250px;
-    max-width: 250px;
-    height: 250px;
-    max-height: 250px;
-  }
-
-  .size-7 {
-    width: 360px;
-    max-width: 360px;
-    height: 640px;
-    max-height: 640px;
-  }
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
 
   &__header {
     display: flex;
@@ -76,18 +27,36 @@ $footer-button-color: #FFF !default;
     background-color: var(--brand-third);
 
     &-logo {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       background-color: var(--brand-third);
+
+      svg {
+        margin-left: 1rem;
+      }
     }
 
     &-slogan {
       background-color: var(--brand-secondary);
-      color: var(--brand-third);
+      color: var(--brand-primary);
     }
   }
 
   &__travel-image {
+    position: relative;
+    overflow: hidden;
+
     img {
       display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #c7c7c7;
+      object-fit: cover;
+      object-position: top;
     }
   }
 
@@ -99,67 +68,256 @@ $footer-button-color: #FFF !default;
 
     .heading {
       text-align: center;
-      font-size: 0.75rem;
-      color: #FFF;
+      text-transform: capitalize;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
     }
 
     .flight-info {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: nowrap;
       text-align: center;
+      padding-left: 10px;
+      padding-right: 10px;
+      z-index: 10;
 
-      &__city {
-        font-weight: bold;
+      &__icon {
+        text-align: center;
       }
-
-      &__icon {}
     }
   }
 
-  &__travel {}
+  &__travel-pricing {
+    background-color: var(--brand-secondary);
+    color: var(--brand-third);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    p {
+      margin: 0
+    }
+  }
+
+  &__booking-button {
+    padding: 5px;
+    background-color: var(--brand-third);
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    p {
+      margin: 0;
+    }
+  }
 }
+
+$prefix: '.c-add-box';
 
 //---------------------------------
 // Size 1 - 1200x627
 .c-add-box.size-1 {
+  max-width: 1200px;
+  max-height: 627px;
+  width: 1200px;
+  height: 627px;
 }
-
 
 //---------------------------------
 // Size 2 - 320x480
 .c-add-box.size-2 {
+  width: 320px;
+  max-width: 320px;
+  height: 480px;
+  max-height: 480px;
+
+  #{$prefix}__header {
+    height: 58px;
+    border-bottom: 2px solid var(--brand-primary);
+
+    &-logo {
+      flex: 0 0 120px;
+
+      svg {
+        max-width: 100px;
+      }
+    }
+
+    &-slogan {
+      flex: 0 0 200px;
+      font-size: 1.4rem;
+      text-align: center;
+      padding: 1rem;
+    }
+  }
+
+  #{$prefix}__travel-image {
+    height: 181px;
+    border-bottom: 3px solid var(--brand-third);
+  }
+
+  #{$prefix}__travel-destination {
+    height: 90px;
+
+    .heading {
+      font-size: 1.5rem;
+      flex: 0 0 36px;
+      justify-content: flex-end;
+    }
+
+    .flight-info {
+      font-size: 2.25rem;
+      flex: 1 1 auto;
+
+      &__icon {
+        flex: 0 0 50px;
+      }
+
+      &__city {
+        flex: 0 0 auto;
+      }
+    }
+  }
+
+  #{$prefix}__travel-pricing {
+    font-size: 2rem;
+    height: 63px;
+  }
+
+  #{$prefix}__booking-button {
+    height: 88px;
+
+    p {
+      font-size: 1.8rem;
+    }
+
+    .btn {
+      width: calc(100% - 20px);
+      margin-left: 10px;
+      margin-right: 10px;
+      margin-top: 10px;
+      font-size: 1.8rem;
+    }
+  }
 }
 
 
 //---------------------------------
 // Size 3 - 300x250
 .c-add-box.size-3 {
+  width: 300px;
+  max-width: 300px;
+  height: 250px;
+  max-height: 250px;
+
+  #{$prefix}__header {
+    height: 58px;
+    border-bottom: 2px solid var(--brand-primary);
+
+    &-logo {
+      flex: 0 0 100px;
+
+      svg {
+        max-width: 100px;
+      }
+    }
+
+    &-slogan {
+      flex: 0 0 200px;
+      font-size: 1.4rem;
+      text-align: center;
+      padding: 1rem;
+    }
+  }
+
+  #{$prefix}__travel-image,
+  #{$prefix}__travel-pricing,
+  #{$prefix}__booking-button p {
+    display: none;
+  }
+
+  #{$prefix}__travel-destination {
+    position: relative;
+    height: 145px;
+    background: {
+      size: cover;
+      position: center;
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5)
+    }
+  }
+
+  #{$prefix}__booking-button {
+    background-color: var(--brand-primary)
+  }
 }
 
 
 //---------------------------------
 // Size 4 - 320x50
 .c-add-box.size-4 {
+  width: 320px;
+  max-width: 320px;
+  height: 50px;
+  max-height: 50px;
 }
 
 
 //---------------------------------
 // Size 5 - 480x320
 .c-add-box.size-5 {
+  width: 480px;
+  max-width: 480px;
+  height: 320px;
+  max-height: 320px;
 }
 
 
 //---------------------------------
 // Size 6 - 300x50
 .c-add-box.size-6 {
+  width: 300px;
+  max-width: 300px;
+  height: 50px;
+  max-height: 50px;
 }
 
 
 //---------------------------------
 // Size 7 - 250x250
 .c-add-box.size-7 {
+  width: 250px;
+  max-width: 250px;
+  height: 250px;
+  max-height: 250px;
 }
 
 
 //---------------------------------
 // Size 8 - 360x640
 .c-add-box.size-8 {
+  width: 360px;
+  max-width: 360px;
+  height: 640px;
+  max-height: 640px;
 }
