@@ -13,7 +13,7 @@ $footer-button-background: #FFF !default;
 $footer-button-color: #FFF !default;
 
 // CORE ADD STYLES
-.c-add-box {
+.c-ad-box {
   background-color: var(--brand-primary);
   color: var(--brand-third);
   display: flex;
@@ -25,39 +25,44 @@ $footer-button-color: #FFF !default;
     display: flex;
     width: 100%;
     background-color: var(--brand-third);
+    border-bottom: 2px solid var(--brand-primary);
 
     &-logo {
       display: flex;
       flex-direction: column;
       justify-content: center;
       background-color: var(--brand-third);
+      flex: 0 0 80px;
 
       svg {
         margin-left: 1rem;
+        max-width: 100px;
       }
     }
 
     &-slogan {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       background-color: var(--brand-secondary);
       color: var(--brand-primary);
+      flex: 1 1 auto;
     }
   }
 
   &__travel-image {
     position: relative;
     overflow: hidden;
-
-    img {
-      display: block;
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: #c7c7c7;
-      object-fit: cover;
-      object-position: top;
-    }
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex: 1 1 auto;
+    background: {
+      size: cover;
+      position: center;
+      color: transparent;
+      repeat: no-repeat;
+    };
   }
 
   &__travel-destination {
@@ -65,6 +70,9 @@ $footer-button-color: #FFF !default;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    z-index: 5;
+    border-top: 3px solid var(--brand-third);
+    background-color: var(--brand-primary);
 
     .heading {
       text-align: center;
@@ -75,6 +83,8 @@ $footer-button-color: #FFF !default;
       justify-content: center;
       align-items: center;
       z-index: 10;
+      font-size: 1.5rem;
+      flex: 0 0 36px;
     }
 
     .flight-info {
@@ -87,9 +97,40 @@ $footer-button-color: #FFF !default;
       padding-left: 10px;
       padding-right: 10px;
       z-index: 10;
+      font-size: 2.25rem;
+      max-width: 100%;
+
+      &__city {
+        max-width: calc(50% - 25px);
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+
+        &.-start {
+          justify-content: flex-end;
+        }
+      }
 
       &__icon {
         text-align: center;
+        flex: 0 0 50px;
+        font-size: 3rem;
+      }
+
+      &__city-full,
+      &__city-short {
+        max-width: 100%;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+
+      &__city-full {
+        display: block;
+      }
+
+      &__city-short {
+        display: none;
       }
     }
   }
@@ -102,7 +143,7 @@ $footer-button-color: #FFF !default;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
+    z-index: 10;
     p {
       margin: 0
     }
@@ -117,26 +158,112 @@ $footer-button-color: #FFF !default;
     align-items: center;
     justify-content: center;
 
-    p {
-      margin: 0;
+    .btn {
+      margin-left: 10px;
+      margin-right: 10px;
+      width: calc(100% - 20px);
+      line-height: 4rem;
     }
   }
 }
 
-$prefix: '.c-add-box';
+$prefix: '.c-ad-box';
 
 //---------------------------------
-// Size 1 - 1200x627
-.c-add-box.size-1 {
-  max-width: 1200px;
-  max-height: 627px;
-  width: 1200px;
-  height: 627px;
+// Shared big size adds
+.c-ad-box.s-360x640,
+.c-ad-box.s-320x480 {
+  #{$prefix}__travel-destination {
+    border-top: 3px solid var(--brand-third);
+    background-color: var(--brand-primary);
+
+    .heading {
+      font-size: 1.5rem;
+      flex: 0 0 36px;
+      justify-content: flex-end;
+    }
+
+    .flight-info {
+      font-size: 2.25rem;
+      width: 100%;
+      max-width: 100%;
+
+      &__icon {
+        flex: 0 0 50px;
+        font-size: 3rem
+      }
+
+      &__city {
+        max-width: calc(50% - 25px);
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+
+        &.-start {
+          justify-content: flex-end;
+        }
+      }
+
+      &__city-full,
+      &__city-short {
+        max-width: 100%;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+
+      &__city-full {
+        display: block;
+      }
+    }
+  }
 }
 
-//---------------------------------
-// Size 2 - 320x480
-.c-add-box.size-2 {
+.c-ad-box.s-360x640 {
+  width: 360px;
+  max-width: 360px;
+  height: 640px;
+  max-height: 640px;
+
+  #{$prefix}__header {
+    height: 80px;
+
+    &-logo {
+      flex: 0 0 100px
+    }
+
+  }
+
+  #{$prefix}__travel-image {
+    background: {
+      size: 100% calc(100% - 170px);
+      position: center top;
+    }
+  }
+
+  #{$prefix}__travel-destination {
+    height: 100px;
+
+    .heading {
+      font-size: 1.5rem;
+      flex: 0 0 36px;
+    }
+
+    .flight-info {
+      font-size: 2.25rem;
+    }
+  }
+
+  #{$prefix}__travel-pricing {
+    height: 70px;
+    font-size: 2.25rem;
+  }
+
+  #{$prefix}__booking-button {
+    height: 80px;
+  }
+}
+.c-ad-box.s-320x480 {
   width: 320px;
   max-width: 320px;
   height: 480px;
@@ -144,37 +271,28 @@ $prefix: '.c-add-box';
 
   #{$prefix}__header {
     height: 58px;
-    border-bottom: 2px solid var(--brand-primary);
 
     &-logo {
-      flex: 0 0 120px;
-
-      svg {
-        max-width: 100px;
-      }
+      flex: 0 0 100px;
     }
 
     &-slogan {
-      flex: 0 0 200px;
-      font-size: 1.4rem;
+      flex: 0 0 220px;
+      font-size: 1.6rem;
       text-align: center;
       padding: 1rem;
     }
   }
 
   #{$prefix}__travel-image {
-    height: 181px;
-    border-bottom: 3px solid var(--brand-third);
+    background: {
+      size: 100% calc(100% - 153px);
+      position: center top;
+    }
   }
 
   #{$prefix}__travel-destination {
     height: 90px;
-
-    .heading {
-      font-size: 1.5rem;
-      flex: 0 0 36px;
-      justify-content: flex-end;
-    }
 
     .flight-info {
       font-size: 2.25rem;
@@ -196,128 +314,211 @@ $prefix: '.c-add-box';
   }
 
   #{$prefix}__booking-button {
-    height: 88px;
-
-    p {
-      font-size: 1.8rem;
-    }
+    height: 60px;
 
     .btn {
       width: calc(100% - 20px);
       margin-left: 10px;
       margin-right: 10px;
-      margin-top: 10px;
       font-size: 1.8rem;
     }
   }
 }
 
+// Shared styles square-like
+.c-ad-box.s-480x320,
+.c-ad-box.s-300x250,
+.c-ad-box.s-250x250,
+.c-ad-box.s-336x280 {
+  #{$prefix}__header {
+    height: 50px;
 
-//---------------------------------
-// Size 3 - 300x250
-.c-add-box.size-3 {
+    &-logo {
+      flex: 0 0 85px;
+
+      svg {
+        transform: scale(0.85);
+        margin-left: 0;
+      }
+    }
+  }
+
+  #{$prefix}__travel-image {
+    &::before {
+      background-color: rgba(0,0,0,0.5);
+      content: '';
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      position: absolute;
+    }
+  }
+
+  #{$prefix}__travel-destination {
+    border: none;
+    background-color: transparent;
+    flex: 1 1 auto;
+  }
+
+  #{$prefix}__travel-pricing {
+    height: 50px;
+  }
+
+  #{$prefix}__booking-button {
+    height: 50px;
+    .btn {
+      height: 3.5rem;
+    }
+  }
+}
+
+.c-ad-box.s-300x250,
+.c-ad-box.s-250x250 {
+  #{$prefix}__travel-destination {
+    .flight-info {
+      .flight-info__city-full {
+        display: none;
+      }
+      .flight-info__city-short {
+        display: block;
+      }
+    }
+  }
+}
+
+
+.c-ad-box.s-300x250 {
   width: 300px;
   max-width: 300px;
   height: 250px;
   max-height: 250px;
 
   #{$prefix}__header {
-    height: 58px;
+    height: 50px;
     border-bottom: 2px solid var(--brand-primary);
 
     &-logo {
-      flex: 0 0 100px;
+      flex: 0 0 80px;
 
       svg {
         max-width: 100px;
+        transform: scale(0.9);
+        margin-left: 0.5rem;
       }
     }
 
     &-slogan {
-      flex: 0 0 200px;
+      flex: 0 0 220px;
       font-size: 1.4rem;
       text-align: center;
       padding: 1rem;
     }
   }
-
-  #{$prefix}__travel-image,
-  #{$prefix}__travel-pricing,
-  #{$prefix}__booking-button p {
-    display: none;
-  }
-
-  #{$prefix}__travel-destination {
-    position: relative;
-    height: 145px;
-    background: {
-      size: cover;
-      position: center;
-    }
-
-    &::after {
-      content: '';
-      display: block;
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.5)
-    }
-  }
-
-  #{$prefix}__booking-button {
-    background-color: var(--brand-primary)
-  }
 }
-
-
-//---------------------------------
-// Size 4 - 320x50
-.c-add-box.size-4 {
-  width: 320px;
-  max-width: 320px;
-  height: 50px;
-  max-height: 50px;
-}
-
-
-//---------------------------------
-// Size 5 - 480x320
-.c-add-box.size-5 {
+.c-ad-box.s-480x320 {
   width: 480px;
   max-width: 480px;
   height: 320px;
   max-height: 320px;
 }
-
-
-//---------------------------------
-// Size 6 - 300x50
-.c-add-box.size-6 {
-  width: 300px;
-  max-width: 300px;
-  height: 50px;
-  max-height: 50px;
-}
-
-
-//---------------------------------
-// Size 7 - 250x250
-.c-add-box.size-7 {
+.c-ad-box.s-250x250 {
   width: 250px;
   max-width: 250px;
   height: 250px;
   max-height: 250px;
+
+  #{$prefix}__header {
+    &-slogan {
+      font-size: 1.2rem;
+    }
+  }
+}
+.c-ad-box.s-336x280 {
+  width: 336px;
+  max-width: 336px;
+  height: 280px;
+  max-height: 280px;
 }
 
+// Small sizes
+.c-ad-box.s-320x50 {
+  width: 320px;
+  max-width: 320px;
+}
+.c-ad-box.s-300x50 {
+  width: 300px;
+  max-width: 300px;
+}
+// Small sizes shared styles
+.c-ad-box.s-320x50,
+.c-ad-box.s-300x50 {
+  flex-direction: row;
+  height: 50px;
+  max-height: 50px;
 
-//---------------------------------
-// Size 8 - 360x640
-.c-add-box.size-8 {
-  width: 360px;
-  max-width: 360px;
-  height: 640px;
-  max-height: 640px;
+  #{$prefix}__header {
+    width: 65px;
+
+    &-logo svg {
+      transform: scale(0.65) translateX(-10px);
+      margin-left: 0;
+    }
+
+    &-slogan {
+      display: none;
+    }
+  }
+
+  #{$prefix}__travel-image {
+    flex: 1 1 auto;
+  }
+
+  #{$prefix}__travel-destination {
+    height: 32px;
+    border: none;
+    background-color: transparent;
+
+    .heading {
+      display: none;
+    }
+
+    .flight-info {
+      font-size: 2rem;
+
+      &__icon {
+        flex: 0 0 30px;
+        font-size: 2.2rem;
+      }
+
+      &__city {
+        flex: 0 0 auto;
+      }
+
+      &__city-full {
+        display: none;
+      }
+      &__city-short {
+        display: initial;
+      }
+    }
+  }
+
+  #{$prefix}__travel-pricing {
+    font-size: 1.1rem;
+    height: 18px;
+    line-height: 1.8rem;
+  }
+
+  #{$prefix}__booking-button {
+    background-color: var(--brand-primary);
+    flex: 0 0 70px;
+
+    .btn {
+      padding-left: 0;
+      padding-right: 0;
+      font-size: 1.4rem;
+      line-height: 1.25;
+    }
+  }
 }
