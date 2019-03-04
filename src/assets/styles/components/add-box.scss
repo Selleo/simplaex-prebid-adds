@@ -21,6 +21,18 @@ $footer-button-color: #FFF !default;
   overflow: hidden;
   position: relative;
 
+  &__link {
+    font-size: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 50;
+    text-indent: -999em;
+  }
+
   &__header {
     display: flex;
     width: 100%;
@@ -106,7 +118,7 @@ $footer-button-color: #FFF !default;
         flex-wrap: nowrap;
         align-items: center;
 
-        &.-start {
+        &.-origin {
           justify-content: flex-end;
         }
       }
@@ -150,7 +162,6 @@ $footer-button-color: #FFF !default;
   }
 
   &__booking-button {
-    padding: 5px;
     background-color: var(--brand-third);
     color: #000;
     display: flex;
@@ -159,10 +170,11 @@ $footer-button-color: #FFF !default;
     justify-content: center;
 
     .btn {
-      margin-left: 10px;
-      margin-right: 10px;
-      width: calc(100% - 20px);
+      margin: 0;
+      width: 100%;
       line-height: 4rem;
+      border-radius: 0;
+      height: 100%;
     }
   }
 }
@@ -199,7 +211,7 @@ $prefix: '.c-ad-box';
         flex-wrap: nowrap;
         align-items: center;
 
-        &.-start {
+        &.-origin {
           justify-content: flex-end;
         }
       }
@@ -260,7 +272,12 @@ $prefix: '.c-ad-box';
   }
 
   #{$prefix}__booking-button {
-    height: 80px;
+    height: 60px;
+
+    .btn {
+      line-height: 6rem;
+      font-size: 2.25rem;
+    }
   }
 }
 .c-ad-box.s-320x480 {
@@ -317,9 +334,7 @@ $prefix: '.c-ad-box';
     height: 60px;
 
     .btn {
-      width: calc(100% - 20px);
-      margin-left: 10px;
-      margin-right: 10px;
+      line-height: 6rem;
       font-size: 1.8rem;
     }
   }
@@ -345,7 +360,7 @@ $prefix: '.c-ad-box';
 
   #{$prefix}__travel-image {
     &::before {
-      background-color: rgba(0,0,0,0.5);
+      background-color: rgba(80,80,80,0.5);
       content: '';
       width: 100%;
       height: 100%;
@@ -359,16 +374,22 @@ $prefix: '.c-ad-box';
     border: none;
     background-color: transparent;
     flex: 1 1 auto;
+    z-index: 50;
+
+    .flight-info {
+      font-size: 2.6rem;
+    }
   }
 
   #{$prefix}__travel-pricing {
     height: 50px;
+    z-index: 50;
   }
 
   #{$prefix}__booking-button {
     height: 50px;
     .btn {
-      height: 3.5rem;
+      line-height: 5rem;
     }
   }
 }
@@ -421,6 +442,12 @@ $prefix: '.c-ad-box';
   max-width: 480px;
   height: 320px;
   max-height: 320px;
+
+  #{$prefix}__travel-destination {
+    .flight-info {
+      font-size: 3rem;
+    }
+  }
 }
 .c-ad-box.s-250x250 {
   width: 250px;
@@ -519,6 +546,7 @@ $prefix: '.c-ad-box';
       padding-right: 0;
       font-size: 1.4rem;
       line-height: 1.25;
+      height: auto;
     }
   }
 }
